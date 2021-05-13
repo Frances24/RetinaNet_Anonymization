@@ -46,8 +46,6 @@ RetinaFace Inference Code from: https://github.com/hukkelas/DSFD-Pytorch-Inferen
 
 
 
-```
-
 ## Citation
 If you find this code useful, remember to cite the original authors:
 ```
