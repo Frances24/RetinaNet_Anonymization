@@ -3,11 +3,11 @@
 - Lightweight single-shot face detection from the paper [RetinaFace: Single-stage Dense Face Localisation in the Wild](https://arxiv.org/abs/1905.00641) adapted from https://github.com/biubug6/Pytorch_Retinaface.
 
 ## Getting started
-Run
+Add the weights for the corresponding model to 'weights'folder and run
 ```
-python3 test.py
+python anonymize_faces -input_type image_folder -input_file videos\\MOT1609 --output_file_type image
 ```
-This will look for images in the `images/` folder, and save the results in the same folder with an ending `_out.jpg`
+This will look for images in the input_file folder, and save the results with same name in output folder
 
 ## Simple API
 To perform detection you can simple use the following lines:

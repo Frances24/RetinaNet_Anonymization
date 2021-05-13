@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import click
 import numpy as np
 from scipy.stats import poisson
 
@@ -9,8 +8,6 @@ from PIL import Image
 from PIL import ImageFilter
 import os
 
-arg = click.argument
-opt = click.option
 
 
 IMAGE_SUFFIXES = ('.jpg', '.jpeg', '.png', '.bmp')
@@ -109,25 +106,14 @@ def clip_box(box, image):
     return x0, y0, x1, y1
 
 
-@click.group()
-def cli():
-    pass
 
 
-@cli.command()
-@arg('image_in')
-@arg('facefile')
-@arg('image_out')
-@opt('--method', default='blur')
 def image(image_in, facefile, image_out, method):
     """Blur faces in a image"""
     process_image(image_in, facefile, image_out, method)
 
 
-@cli.command()
-@arg('input_path')
-@arg('output_path')
-@opt('--method', default='blur')
+
 def folder(input_path, output_path, method):
     """Blur faces in all images in a folder"""
     input_path = Path(input_path)
@@ -143,12 +129,9 @@ def folder(input_path, output_path, method):
         process_image(imagefile, facefile, image_out, method)
 
 
-@cli.command()
 def methods():
     methods = list(anonymization_methods.keys())
     methods.sort()
     print(*methods, sep='\n')
 
-
-if __name__ == "__main__":
-    cli() 
+ 
