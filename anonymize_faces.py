@@ -132,7 +132,7 @@ def write_to_file(img, output_file_type, output_file_loc, writer, fname):
 def anonymize_input(opt):
     
     detector = face_detection.build_detector(
-        "RetinaNetResNet50",
+        opt.detector,
         confidence_threshold=.01,
         nms_iou_threshold=.0005,
         max_resolution=1080
@@ -176,7 +176,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-input_type', type=str, help='Whether input is video_file or image_folder')
     parser.add_argument('-input_file', type=str, help='Input video or image folder')
-    parser.add_argument('--detector', type=list, default=["RetinaNetResNet50"], help='whether RetinaNet with Resnet or mobilenet backbone')
+    parser.add_argument('--detector', type=str, default="RetinaNetResNet50", help='whether RetinaNet with Resnet or mobilenet backbone')
     parser.add_argument('--filter_boxes_scale', type=float, default=1/8, help='if not None, will filter out unlikely boxes that are larger than 1/x of the height and width of image')
     parser.add_argument('--resize', type=float, default=None, help='scale or size to resize to, if None, image is not resized')
     parser.add_argument('--output_file_type', type=str, default='image', help = 'whether to write anonymization to images or video')
