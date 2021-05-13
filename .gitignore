@@ -1,0 +1,8 @@
+__pycache__
+*.zip
+*.npy
+*.gz
+*.ckpt
+*.pth
+*.jpg
+*.mp4
